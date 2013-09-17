@@ -1,3 +1,5 @@
+# Author: Tim Bradt
+# Makefile for building convert
 .SUFFIXES: .c .o
 CC = gcc
 EXEC = convert
@@ -25,8 +27,9 @@ cppcheck:
 pre: convert.c convert.h
 	${CC} -E convert.c
 
+#Makes TAR file
 tar: clean ${EXEC} run
 	make clean
-	tar cvfz convert.tgz *.h *.c Makefile
+	tar cvfz ${EXEC}.tgz *.h *.c Makefile
 
 convert.o: convert.c convert.h
